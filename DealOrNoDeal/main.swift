@@ -71,44 +71,41 @@ var briefcaseValues = [100, 500, 1_000, 5_000, 10_000, 25_000, 50_000, 100_000, 
 //
 // An integer between 1 and 10, inclusive
 func getBriefcaseOpened(onTurn turn: Int) -> Int {
-   
-    while true{
+    
+    //ask for input
+    for briefcases in 1...briefcasesOpened{
+        print("What is the number of the \(briefcases) briefcase opened?")
         
-        //ask for input
-        for briefcases in 1...briefcasesOpened{
-            print("What is the number of the \(briefcases) briefcase opened?")
-        }
-        
-        guard let briefcasesNumber = readLine() else {
+        while true{
+            guard let briefcasesNumber = readLine() else {
+                
+                // No input given, return to top of loop and ask again
+                continue
+            }
             
-            // No input given, return to top of loop and ask again
-            continue
-        }
-        
-        // Attempt to make input into an integer
-        guard let number = Int(briefcasesNumber) else {
+            // Attempt to make input into an integer
+            guard let getBriefcaseOpened = Int(briefcasesNumber) else {
+                
+                // Could not make input into an integer, so return to top and ask again
+                continue
+                
+            }
             
-            // Could not make input into an integer, so return to top and ask again
-            continue
-            
-        }
-        
-        // Check that integer is in desired range
-        // REMEMBER: Guard statement conditions describe what we WANT
-        guard number > 0, number < 11 else {
-            
-            // Integer not in desired range, return to top and ask again
-            continue
-            
-        }
-        
-        // If we've made it here, the input is valid
-        briefcaseValues[number]=0
-        
-        // Stop looping
-        break
-    }
+            // Check that integer is in desired range
+            // REMEMBER: Guard statement conditions describe what we WANT
+            guard getBriefcaseOpened > 0, getBriefcaseOpened < 11 else {
+                
+                // Integer not in desired range, return to top and ask again
+                continue
+                
+            }
 
+            // Stop looping
+            break
+        }
+    }
+    
+    
     
     // The statement below can be modified
     return 0
