@@ -108,7 +108,7 @@ func getBriefcaseOpened(onTurn turn: Int) -> Int {
     }
 }
 
-func bankerOfferFunc () -> Int{
+func GetBankerOffer () -> Int{
     while true{
         
         //ask for input
@@ -118,7 +118,7 @@ func bankerOfferFunc () -> Int{
             continue
         }
         
-       // Attempt to make input into an integer
+        // Attempt to make input into an integer
         guard let integer2 = Int(inputGiven2) else {
             
             // Could not make input into an integer, so return to top and ask again
@@ -132,7 +132,7 @@ func bankerOfferFunc () -> Int{
             
             // Integer not in desired range, return to top and ask again
             continue
-        
+            
         }
         
         bankerOffer = integer2
@@ -149,9 +149,20 @@ for turn in 1...briefcasesOpened {
     // Get which briefcase was opened
     let briefcaseOpenedThisTime = getBriefcaseOpened(onTurn: turn)
     
+    
     // STUDENTS: Now that you know what briefcase is opened... what might you do to the array value(s)?
     briefcaseValues[briefcaseOpenedThisTime - 1] = 0
     
+}
+
+bankerOffer = GetBankerOffer()
+
+let total = (briefcaseValues[0]+briefcaseValues[1]+briefcaseValues[2]+briefcaseValues[3]+briefcaseValues[4]+briefcaseValues[5]+briefcaseValues[6]+briefcaseValues[7]+briefcaseValues[8]+briefcaseValues[9])/10
+
+if total<bankerOffer{
+    print("take the offer")
+}else{
+    print("don't take the offer")
 }
 
 // STUDENTS: Do any remaining calculations you might need below.
